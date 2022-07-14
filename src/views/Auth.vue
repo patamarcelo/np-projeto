@@ -5,16 +5,22 @@
             <q-page class="flex flex-center">
 
                 <div
-                    class="flex flex-col md:w-full lg:w-1/3/1 justify-center items-center border-2 p-10 rounded shadow-md bg-white m-10">
+                    class="flex flex-col w-full  md:w-3/5 lg:w-2/5  justify-center items-center border-2  rounded shadow-md bg-white m-10 p-10 ">
                     <div class="flex w-full flex-col">
                         <h1 class="text-2xl  text-bold font-serif mb-4">Login</h1>
-                        <q-input :rules="state.rules.username" v-model="state.user.username" type="email" hide-hint
+                        <q-input
+                        @keydown.enter="loginSistem" 
+                        :rules="state.rules.username" v-model="state.user.username" type="email" hide-hint
                             hint="Nome de usuário" for="email" label="E-mail" />
-                        <q-input counter :rules="state.rules.password" v-model="state.user.password" type="password"
+                        <q-input 
+                        @keydown.enter="loginSistem" 
+                        counter :rules="state.rules.password" v-model="state.user.password" type="password"
                             hide-hint hint="Senha" for="password" label="Senha" />
                     </div>
                     <div class="flex w-full flex-col mt-10">
-                        <q-btn color="teal" @click="loginSistem" label="Entrar" :loading="state.isLoading" />
+                        <q-btn 
+                        :disable="state.user.password && state.user.username"
+                        color="teal" @click="loginSistem" label="Entrar" :loading="state.isLoading" />
                     </div>
 
 

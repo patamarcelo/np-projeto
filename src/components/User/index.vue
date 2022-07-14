@@ -2,7 +2,7 @@
 
     <q-layout>
         <q-page-container>
-            <q-page class="flex flex-center flex-col w-full">
+            <q-page class="flex flex-center flex-col w-full whitespace-normal">
                 <div class="w-full">
                     <h1 class="bg-orange-3">
                         User Page</h1>
