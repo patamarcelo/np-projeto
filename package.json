@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "engines": {
     "node": "14.17.0",
-    "npm": "8.1.2"
+    "npm": "8.1.2",
+    "yarn": ">= 1.22.5"
   },
   "scripts": {
     "dev": "vite",
-    "build": "npx quasar build -m ssr",
+    "build": "vite build",
     "preview": "vite preview",
     "start": "node server.js"
   },
