@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "quasar build",
+    "build": "yarn",
     "preview": "vite preview",
     "start": "node server.js",
     "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
