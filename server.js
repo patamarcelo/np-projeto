@@ -1,11 +1,12 @@
-const
-  express = require('express'),
-  serveStatic = require('serve-static'),
-  history = require('connect-history-api-fallback'),
-  port = process.env.PORT || 5000
+const express = require("express");
+const path = require("path");
+const serveStatic = require("serve-static");
 
-const app = express()
+const app = express();
 
-app.use(history())
-app.use(serveStatic(__dirname + '/dist'))
-app.listen(port)
+app.use("/", serveStatic(path.join(__dirname, "/dist")));
+
+const port = process.env.PORT || 8080;
+app.listen(port);
+
+console.log("server started " + port);
