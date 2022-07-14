@@ -5,7 +5,7 @@
             <q-page class="flex flex-center">
 
                 <div
-                    class="flex flex-col md:w-full lg:w-1/5 justify-center items-center border-2 p-10 rounded shadow-md bg-white m-10">
+                    class="flex flex-col md:w-full lg:w-1/3/1 justify-center items-center border-2 p-10 rounded shadow-md bg-white m-10">
                     <div class="flex w-full flex-col">
                         <h1 class="text-2xl  text-bold font-serif mb-4">Login</h1>
                         <q-input :rules="state.rules.username" v-model="state.user.username" type="email" hide-hint
