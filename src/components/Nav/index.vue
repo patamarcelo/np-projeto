@@ -4,9 +4,9 @@
 
             <div class="title">
                 <div class="cursor-pointer"
-                    :class="state.isHide ? ['btn-hide', 'rotate-90'] : ['btn-show', 'rotate-180']">
+                    :class="state.isHide ? ['btn-hide', 'rotate-90'] : ['btn-show', 'rotate-270']">
                     <q-btn round :color="state.isHide ? 'secondary' : 'primary'"
-                        :icon="state.isHide ? 'navigation' : 'fas fa-bars'" size="sm"
+                        :icon="state.isHide ? 'navigation' : 'navigation'" size="sm"
                         @click="state.isHide = !state.isHide" />
                 </div>
                 <q-img src="../../assets/logo.png" />
@@ -23,7 +23,7 @@
             <div class="rodape">
                 <div>
                     <router-link to="/user">
-                        <q-avatar color="primary" size="62" :class="{ 'q-mb-xl': state.isHide }">
+                        <q-avatar size="62" :class="{ 'q-mb-xl': state.isHide }">
                             <!-- <q-img alt="Avatar" src="../../assets/avatar.png" /> -->
                             <q-img alt="Avatar" :src="userStore.user.img" />
 
@@ -57,7 +57,7 @@ export default {
     data() {
         return {
             links: [
-                { name: "Home", path: "/", display: "Home", icon: "home", show: true, },
+                { name: "Home", path: "/home", display: "Home", icon: "home", show: true, },
                 {
                     name: "Form",
                     path: "/form",
@@ -155,7 +155,7 @@ img {
 }
 
 .btn-show {
-    margin-top: -60px;
+    margin-top: -30px;
     margin-bottom: 30px;
     margin-right: -140px;
     transition: all 0.5s

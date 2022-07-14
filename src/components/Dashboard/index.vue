@@ -1,11 +1,13 @@
 <template>
     <div class="main-dash">
         <div>
-            <router-view v-slot="{ Component }">
-                <!-- <q-slide-transition transition-show="rotate"> -->
+            <q-slide-transition>
+                <router-view v-slot="{ Component }">
+
                     <component :is="Component" />
-                <!-- </q-slide-transition> -->
-            </router-view>
+
+                </router-view>
+            </q-slide-transition>
         </div>
     </div>
 </template>

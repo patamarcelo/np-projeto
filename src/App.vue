@@ -26,17 +26,18 @@ export default {
 </script>
 
 <template>
+  <q-slide-transition>
+    <template v-if="isLogado">
 
-  <template v-if="isLogado">
-
-    <div class="container-prop">
-      <Drawer />
-      <Dashboard />
-    </div>
-  </template>
-  <template v-else>
-    <Auth />
-  </template>
+      <div class="container-prop">
+        <Drawer />
+        <Dashboard />
+      </div>
+    </template>
+    <template v-else>
+      <Auth />
+    </template>
+  </q-slide-transition>
 </template>
 
 <style>

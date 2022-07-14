@@ -21,9 +21,9 @@
 
             </q-card>
         </div>
-        <div class="flex justify-start">
+        <div class="flex justify-start mb-6">
 
-            <div class="flex min-w-[650px] w-1/3/1 m-2 p-2" v-if="state.isLoading || state.lista">
+            <div class="flex min-w-[600px] w-1/3/1 m-1 p-2" v-if="state.isLoading || state.lista">
                 <q-card class=" my-card bg-primary w-full text-white">
                     <q-card-section>
                         <div class="text-h6">Busca por palavra chave</div>
@@ -38,7 +38,7 @@
                     </q-card-section>
                 </q-card>
             </div>
-            <div class="flex min-w-[650px]   w-1/3/1 m-2 p-2" v-if="state.isLoadingQueries || state.rising">
+            <div class="flex min-w-[600px]   w-1/3/1 m-1 p-2" v-if="state.isLoadingQueries || state.rising">
                 <q-card class=" my-card bg-primary w-full text-white">
                     <q-card-section>
                         <div class="text-h6">Busca por palavra chave</div>
@@ -57,7 +57,7 @@
                     </q-card-section>
                 </q-card>
             </div>
-            <div class="flex min-w-[650px] w-1/3/1 m-2 p-2" v-if="state.isLoadingQueries || state.top">
+            <div class="flex min-w-[600px] w-1/3/1 m-1 p-2" v-if="state.isLoadingQueries || state.top">
                 <q-card class=" my-card bg-primary w-full text-white">
                     <q-card-section>
                         <div class="text-h6">Busca por palavra chave</div>

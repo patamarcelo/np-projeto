@@ -458,7 +458,8 @@
 import { reactive, watch } from 'vue'
 import useStore from '../../stores/user'
 import { useRouter } from 'vue-router'
-import { apiDjangoJson } from '../../plugins/axios'
+// import { apiDjangoJson } from '../../plugins/axios'
+import { apiflask } from '../../plugins/axios'
 
 
 export default {
@@ -621,9 +622,11 @@ export default {
                 'pessoasInteressadasSegmentos': state.pessoasInteressadasSegmentos
 
             }
-            const url = 'api/valutech/1/get_data_np_project/'
+            // const url = 'api/valutech/1/get_data_np_project/'
+            // FLASK APP
+            const url = 'get_data_np_project'
             try {
-                const response = await apiDjangoJson.post(url, data,
+                const response = await apiflask.post(url, data,
                     {
                     }).then((resp) => {
                         console.log(resp.data)

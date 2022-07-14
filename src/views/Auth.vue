@@ -5,22 +5,24 @@
             <q-page class="flex flex-center">
 
                 <div
-                    class="flex flex-col w-full  md:w-3/5 lg:w-2/5  justify-center items-center border-2  rounded shadow-md bg-white m-10 p-10 ">
-                    <div class="flex w-full flex-col">
+                    class="flex flex-col w-full  md:w-3/5 lg:w-2/5  border-none justify-center items-center border-2  rounded-lg shadow-15 bg-white m-10 p-10 ">
+                    <div class="flex w-full flex-col rounded-lg ">
                         <h1 class="text-2xl  text-bold font-serif mb-4">Login</h1>
-                        <q-input
-                        @keydown.enter="loginSistem" 
-                        :rules="state.rules.username" v-model="state.user.username" type="email" hide-hint
-                            hint="Nome de usuário" for="email" label="E-mail" />
-                        <q-input 
-                        @keydown.enter="loginSistem" 
-                        counter :rules="state.rules.password" v-model="state.user.password" type="password"
-                            hide-hint hint="Senha" for="password" label="Senha" />
+                        <q-input @keydown.enter="loginSistem" :rules="state.rules.username"
+                            v-model="state.user.username" type="email" hide-hint hint="Nome de usuário" for="email"
+                            label="E-mail" />
+                        <q-input @keydown.enter="loginSistem" counter :rules="state.rules.password"
+                            v-model="state.user.password" type="password" hide-hint hint="Senha" for="password"
+                            label="Senha" />
                     </div>
                     <div class="flex w-full flex-col mt-10">
-                        <q-btn 
-                        :disable="state.user.password && state.user.username"
-                        color="teal" @click="loginSistem" label="Entrar" :loading="state.isLoading" />
+                        <q-btn :disable="state.user.password && state.user.username" color="teal" @click="loginSistem"
+                            label="Entrar" :loading="state.isLoading">
+                            <template v-slot:loading>
+                                <q-spinner-facebook />
+                            </template>
+                        </q-btn>
+
                     </div>
 
 
@@ -40,9 +42,11 @@ import { useQuasar } from 'quasar'
 import { onBeforeUnmount } from 'vue'
 import { reactive } from 'vue'
 import { apidjango } from '../plugins/axios'
+import { useRouter } from 'vue-router'
 
 export default {
     setup() {
+        const router = useRouter()
         const system = systemStore()
         const userStore = useStore()
         const $q = useQuasar()
@@ -89,7 +93,7 @@ export default {
                     userStore.changeName(name)
                     userStore.registerUserImg(user_img);
                     // this.demoStore.changeLogin();
-                    // this.$router.push({ name: "Home" });
+                    router.push({ name: "Home" });
                 })
                 .catch((error) => {
                     if (error.response.data.non_field_errors) {

@@ -8,7 +8,7 @@ const Page2 = () => import("../components/Page2/index.vue");
 
 const routes = [
 	{
-		path: "/",
+		path: "/home",
 		name: "Home",
 		component: Home
 	},
