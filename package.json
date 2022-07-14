@@ -11,7 +11,7 @@
     "build": "quasar build",
     "preview": "vite preview",
     "start": "node server.js",
-    "heroku-postbuild": "yarn && yarn build"
+    "heroku-postbuild": "npm && npm build"
   },
   "dependencies": {
     "@quasar/extras": "^1.14.2",
