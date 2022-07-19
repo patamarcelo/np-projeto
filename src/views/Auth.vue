@@ -5,7 +5,7 @@
             <q-page class="flex flex-center">
 
                 <div
-                    class="flex flex-col w-full  md:w-3/5 lg:w-2/5  border-none justify-center items-center border-2  rounded-lg shadow-15 bg-white m-10 p-10 ">
+                    class="flex flex-col w-full  md:w-3/5 lg:w-2/5 max-w-[500px] border-none justify-center items-center border-2  rounded-lg shadow-15 bg-white m-10 p-10 ">
                     <div class="flex w-full flex-col rounded-lg ">
                         <h1 class="text-2xl  text-bold font-serif mb-4">Login</h1>
                         <q-input @keydown.enter="loginSistem" :rules="state.rules.username"
@@ -14,6 +14,16 @@
                         <q-input @keydown.enter="loginSistem" counter :rules="state.rules.password"
                             v-model="state.user.password" type="password" hide-hint hint="Senha" for="password"
                             label="Senha" />
+                        <div class="text-left">
+                            <q-icon :name="state.rules.passLength ? 'check_circle' : 'cancel'"
+                                :color="state.rules.passLength ? 'positive' : 'negative'"></q-icon>
+                            Senha precisa conter 8 dígitos.
+                        </div>
+                        <div class="text-left">
+                            <q-icon :name="state.rules.passNumber ? 'check_circle' : 'cancel'"
+                                :color="state.rules.passNumber ? 'positive' : 'negative'"></q-icon>
+                            Precisa conter pelo menos um número.
+                        </div>
                     </div>
                     <div class="flex w-full flex-col mt-10">
                         <q-btn :disable="state.user.password && state.user.username" color="teal" @click="loginSistem"
@@ -56,9 +66,12 @@ export default {
             user: {},
             isLoading: false,
             rules: {
+                passLength: false,
+                passNumber: false,
                 password: [
-                    val => !!val || 'Senha Obrigatória',
-                    v => (v && v.length == 8) || "Senha precisa conter 8 dígitos",
+                    // val => !!val || 'Senha Obrigatória',
+                    // v => (v && v.length == 8) || "Senha precisa conter 8 dígitos",
+                    v => (validatePassword(v)) || "Senha Inválida",
                 ],
                 username: [
                     val => !!val || 'Email Obrigatório',
@@ -68,12 +81,13 @@ export default {
             }
         })
 
-        // onBeforeUnmount(() => {
-        //     if (timer !== void 0) {
-        //         clearTimeout(timer)
-        //         $q.loading.hide()
-        //     }
-        // })
+        function validatePassword(password) {
+            state.rules.passLength = password.length >= 8;
+
+            state.rules.passNumber = /^(?=.*[0-9]).*$/.test(password);
+
+            return (state.rules.passLength && state.rules.passNumber)
+        }
 
         function loginSistem() {
             loginRequest()
