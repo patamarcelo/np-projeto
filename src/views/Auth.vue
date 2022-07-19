@@ -26,8 +26,8 @@
                         </div>
                     </div>
                     <div class="flex w-full flex-col mt-10">
-                        <q-btn :disable="state.user.password && state.user.username" color="teal" @click="loginSistem"
-                            label="Entrar" :loading="state.isLoading">
+                        <q-btn :disable="!validatePassword(state.user.password) || !state.user.username" color="teal"
+                            @click="loginSistem" label="Entrar" :loading="state.isLoading">
                             <template v-slot:loading>
                                 <q-spinner-facebook />
                             </template>
@@ -63,7 +63,10 @@ export default {
 
         // let timer
         const state = reactive({
-            user: {},
+            user: {
+                password: '',
+                username: '',
+            },
             isLoading: false,
             rules: {
                 passLength: false,
@@ -142,6 +145,7 @@ export default {
         return {
             state,
             loginSistem,
+            validatePassword
         }
     }
 }
