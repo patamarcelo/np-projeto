@@ -27,6 +27,7 @@ export default {
 
 <template>
   <q-slide-transition>
+    <!-- <template v-if="isLogado || !isLogado"> -->
     <template v-if="isLogado">
 
       <div class="container-prop">

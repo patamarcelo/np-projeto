@@ -5,7 +5,7 @@
             <fieldset class="border-solid border-black border-2 w-full">
                 <legend class="text-bold p-4 ml-8 text-left">Título </legend>
                 <div class="flex flex-start flex-col items-start ml-4 mb-4 justify-center space-y-10">
-                    <q-input class=" w-4/5 min-w-[250px]" dense v-model="state.user.empresaNome"
+                    <q-input class=" w-4/5 min-w-[250px]" dense outlined v-model="state.user.empresaNome"
                         label="Nome da Empresa" />
                     <q-input class=" w-4/5 min-w-[250px]" dense v-model="state.user.tipoNegocio" label="Tipo de negócio"
                         hint="Defina seu negócio" hide-hint counter />

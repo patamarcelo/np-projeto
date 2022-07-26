@@ -1,79 +1,65 @@
 <template>
-    <div class="flex col justify-around">
-        <div class="q-pa-xl" v-for="_ in 4" :key="_">
-            <q-card style="max-width: 300px">
-                <q-item>
-                    <q-item-section avatar>
-                        <q-skeleton type="QAvatar" />
-                    </q-item-section>
+    <div class="main-container-result mb-10">
+        <Skel v-if="state.isLoading" />
+        <div v-else>
+            <div class="">
+                <BoxText title="Calendario ">
+                    <div class=" m-2 p-4 w-full">
+                        <Cal />
+                    </div>
 
-                    <q-item-section>
-                        <q-item-label>
-                            <q-skeleton type="text" />
-                        </q-item-label>
-                        <q-item-label caption>
-                            <q-skeleton type="text" />
-                        </q-item-label>
-                    </q-item-section>
-                </q-item>
+                </BoxText>
 
-                <q-skeleton height="200px" square />
 
-                <q-card-actions align="right" class="q-gutter-md">
-                    <q-skeleton type="QBtn" />
-                    <q-skeleton type="QBtn" />
-                </q-card-actions>
-            </q-card>
+                <BoxText title="Video Tutorial Canvas">
+                    <div class=" m-2 p-4 w-full">
+                        <q-video :ratio="16 / 9" src="https://www.youtube.com/embed/k3_tw44QsZQ?rel=0" />
+                    </div>
+                </BoxText>
+
+                <BoxText title="PALVRAS SUGERIDAS" />
+
+                <BoxText title="COM, ONDE, COMO, TIPO, PERTO, PARECIDO COM, PARA, PRÓXIMO " />
+
+                <BoxText title="Timeline ">
+                    <div class=" m-2 p-4 w-full max-h-[90vh]">
+                        <Timeline />
+                    </div>
+                </BoxText>
+
+            </div>
         </div>
     </div>
 
-    <div class="q-pa-md">
-        <q-markup-table>
-            <thead>
-                <tr>
-                    <th class="text-left" style="width: 150px">
-                        <q-skeleton animation="blink" type="text" />
-                    </th>
-                    <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
-                    </th>
-                    <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
-                    </th>
-                    <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
-                    </th>
-                    <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
-                    </th>
-                    <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
-                    </th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr v-for="n in 5" :key="n">
-                    <td class="text-left">
-                        <q-skeleton animation="blink" type="text" width="85px" />
-                    </td>
-                    <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="50px" />
-                    </td>
-                    <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="35px" />
-                    </td>
-                    <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="65px" />
-                    </td>
-                    <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="25px" />
-                    </td>
-                    <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="85px" />
-                    </td>
-                </tr>
-            </tbody>
-        </q-markup-table>
-    </div>
 </template>
+
+<script>
+import Skel from './Skelter.vue'
+import { reactive } from 'vue'
+import BoxText from './BoxText.vue'
+import Cal from './Cal.vue'
+import Timeline from './Timeline.vue'
+
+export default {
+    components: { Skel, BoxText, Cal, Timeline },
+    setup() {
+        const state = reactive({
+            isLoading: false,
+        })
+
+        return {
+            state
+        }
+    },
+
+    created() {
+        this.state.isLoading = true
+        setTimeout(() => {
+            this.state.isLoading = false
+        }, 1000)
+    }
+}
+</script>
+
+<style>
+</style>

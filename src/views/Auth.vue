@@ -14,13 +14,13 @@
                         <q-input @keydown.enter="loginSistem" counter :rules="state.rules.password"
                             v-model="state.user.password" type="password" hide-hint hint="Senha" for="password"
                             label="Senha" />
-                        <div class="text-left">
-                            <q-icon :name="state.rules.passLength ? 'check_circle' : 'cancel'"
+                        <div class="text-left flex">
+                            <q-icon class="mr-1 self-center" :name="state.rules.passLength ? 'check_circle' : 'cancel'"
                                 :color="state.rules.passLength ? 'positive' : 'negative'"></q-icon>
                             Senha precisa conter 8 dígitos.
                         </div>
-                        <div class="text-left">
-                            <q-icon :name="state.rules.passNumber ? 'check_circle' : 'cancel'"
+                        <div class="text-left flex">
+                            <q-icon class="mr-1 self-center" :name="state.rules.passNumber ? 'check_circle' : 'cancel'"
                                 :color="state.rules.passNumber ? 'positive' : 'negative'"></q-icon>
                             Precisa conter pelo menos um número.
                         </div>

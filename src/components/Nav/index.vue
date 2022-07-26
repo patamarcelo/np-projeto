@@ -75,9 +75,9 @@ export default {
                 {
                     name: "Pag2",
                     path: "/page2",
-                    display: "Página 2",
+                    display: "Resultado",
                     icon: fasChartPie,
-                    show: false,
+                    show: true,
                 },
             ],
         };
