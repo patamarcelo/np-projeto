@@ -25,26 +25,82 @@ export default {
         const state = reactive({
             events: [
                 {
-                    start: '2022-07-29',
-                    end: '2022-07-29',
+                    start: '2022-08-01',
+                    end: '2022-08-01',
                     title: 'Postagem no Facebook',
                     content: '<i class="v-icon material-icons">facebook</i>',
                     class: 'facebook'
                 },
                 {
-                    start: '2022-07-27',
-                    end: '2022-07-27',
+                    start: '2022-08-01',
+                    end: '2022-08-01',
                     title: 'Email para o Marcelo pata sobre minhas dúvidas',
                     content: '<i class="v-icon material-icons">mail</i>',
                     class: 'email'
                 },
                 {
-                    start: '2022-07-27',
-                    end: '2022-07-27',
+                    start: '2022-08-02',
+                    end: '2022-08-02',
                     title: 'Dad\'s birthday!',
                     content: '<i class="v-icon material-icons">facebook</i>',
                     class: 'facebook'
-                }
+                },
+                {
+                    start: '2022-08-02',
+                    end: '2022-08-02',
+                    title: 'Dad\'s birthday!',
+                    content: '<i class="v-icon material-icons">mail</i>',
+                    class: 'email'
+                },
+                {
+                    start: '2022-08-02',
+                    end: '2022-08-02',
+                    title: 'Dad\'s birthday!',
+                    content: '<i class="v-icon material-icons">facebook</i>',
+                    class: 'facebook'
+                },
+                {
+                    start: '2022-08-02',
+                    end: '2022-08-02',
+                    title: 'Dad\'s birthday!',
+                    content: '<i class="v-icon material-icons">mail</i>',
+                    class: 'email'
+                },
+                {
+                    start: '2022-08-02',
+                    end: '2022-08-02',
+                    title: 'Dad\'s birthday!',
+                    content: '<i class="v-icon material-icons">facebook</i>',
+                    class: 'facebook'
+                },
+                {
+                    start: '2022-08-04',
+                    end: '2022-08-04',
+                    title: 'Dad\'s birthday!',
+                    content: '<i class="v-icon material-icons">mail</i>',
+                    class: 'email'
+                },
+                {
+                    start: '2022-08-04',
+                    end: '2022-08-04',
+                    title: 'Dad\'s birthday!',
+                    content: '<i class="v-icon material-icons">facebook</i>',
+                    class: 'facebook'
+                },
+                {
+                    start: '2022-08-04',
+                    end: '2022-08-04',
+                    title: 'Dad\'s birthday!',
+                    content: '<i class="v-icon material-icons">mail</i>',
+                    class: 'email'
+                },
+                {
+                    start: '2022-08-04',
+                    end: '2022-08-04',
+                    title: 'Dad\'s birthday!',
+                    content: '<i class="v-icon material-icons">facebook</i>',
+                    class: 'facebook'
+                },
             ]
         })
         return { state }
@@ -54,9 +110,19 @@ export default {
 </script>
 
 <style>
+.vuecal__cell-events {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+
+}
+
 .vuecal__event {
-    padding: 3px;
-    margin: 0 0 4px 0;
+    width: 90%;
+    padding: 6px;
+    margin: 2px 4px 2px;
 }
 
 .vuecal__event.facebook {
