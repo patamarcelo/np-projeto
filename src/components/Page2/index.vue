@@ -112,7 +112,7 @@ export default {
         this.state.isLoading = true
         setTimeout(() => {
             this.state.isLoading = false
-        }, 1000)
+        }, 2000)
     }
 }
 </script>

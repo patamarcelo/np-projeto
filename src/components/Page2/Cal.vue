@@ -27,79 +27,72 @@ export default {
                 {
                     start: '2022-08-01',
                     end: '2022-08-01',
-                    title: 'Postagem no Facebook',
-                    content: '<i class="v-icon material-icons">facebook</i>',
+                    title: 'Postagem Facebook',
+                    content: '<i class="fab fa-facebook"></i>',
                     class: 'facebook'
                 },
                 {
                     start: '2022-08-01',
                     end: '2022-08-01',
                     title: 'Email para o Marcelo pata sobre minhas dúvidas',
-                    content: '<i class="v-icon material-icons">mail</i>',
+                    content: '<i class="fas fa-envelope"></i>',
                     class: 'email'
                 },
                 {
                     start: '2022-08-02',
                     end: '2022-08-02',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">facebook</i>',
+                    title: 'Postagem Facebook',
+                    content: '<i class="fab fa-facebook"></i>',
                     class: 'facebook'
                 },
                 {
                     start: '2022-08-02',
                     end: '2022-08-02',
                     title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">mail</i>',
+                    content: '<i class="fas fa-envelope"></i>',
                     class: 'email'
                 },
                 {
                     start: '2022-08-02',
                     end: '2022-08-02',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">facebook</i>',
+                    title: 'Postagem Facebook',
+                    content: '<i class="fab fa-facebook"></i>',
                     class: 'facebook'
                 },
                 {
                     start: '2022-08-02',
                     end: '2022-08-02',
                     title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">mail</i>',
-                    class: 'email'
+                    content: '<i class="fab fa-instagram"></i>',
+                    class: 'instagram'
                 },
                 {
-                    start: '2022-08-02',
-                    end: '2022-08-02',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">facebook</i>',
+                    start: '2022-08-04',
+                    end: '2022-08-04',
+                    title: 'Video Youtube!',
+                    content: '<i class="fab fa-youtube"></i>',
+                    class: 'youtube'
+                },
+                {
+                    start: '2022-08-04',
+                    end: '2022-08-04',
+                    title: 'Postagem Facebook',
+                    content: '<i class="fab fa-facebook"></i>',
                     class: 'facebook'
                 },
                 {
                     start: '2022-08-04',
                     end: '2022-08-04',
                     title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">mail</i>',
+                    content: '<i class="fas fa-envelope"></i>',
                     class: 'email'
                 },
                 {
                     start: '2022-08-04',
                     end: '2022-08-04',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">facebook</i>',
-                    class: 'facebook'
-                },
-                {
-                    start: '2022-08-04',
-                    end: '2022-08-04',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">mail</i>',
-                    class: 'email'
-                },
-                {
-                    start: '2022-08-04',
-                    end: '2022-08-04',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="v-icon material-icons">facebook</i>',
-                    class: 'facebook'
+                    title: 'Postagem Instagram',
+                    content: '<i class="fab fa-instagram"></i>',
+                    class: 'instagram'
                 },
             ]
         })
@@ -126,17 +119,30 @@ export default {
 }
 
 .vuecal__event.facebook {
-    background-color: rgba(253, 156, 66, 0.9);
     background-color: blue;
-    border: 1px solid rgb(233, 136, 46);
     border: 1px solid blue;
     color: #fff;
+}
 
+.vuecal__event.instagram {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+    border: 1px solid #D2317C;
+    color: #fff;
 }
 
 .vuecal__event.email {
-    background-color: rgba(255, 102, 102, 0.9);
-    border: 1px solid rgb(235, 82, 82);
+    background-color: rgba(52, 106, 206, 0.9);
+    border: 1px solid rgb(52, 106, 206);
+    color: #fff;
+}
+
+.vuecal__event.youtube {
+    background-color: rgba(196, 48, 43, 0.9);
+    border: 1px solid rgb(196, 48, 43);
     color: #fff;
 }
 </style>

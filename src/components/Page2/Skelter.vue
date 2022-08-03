@@ -32,22 +32,22 @@
             <thead>
                 <tr>
                     <th class="text-left" style="width: 150px">
-                        <q-skeleton animation="blink" type="text" />
+                        <q-skeleton animation="pulse" type="text" />
                     </th>
                     <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
+                        <q-skeleton animation="pulse" type="text" />
                     </th>
                     <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
+                        <q-skeleton animation="pulse" type="text" />
                     </th>
                     <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
+                        <q-skeleton animation="pulse" type="text" />
                     </th>
                     <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
+                        <q-skeleton animation="pulse" type="text" />
                     </th>
                     <th class="text-right">
-                        <q-skeleton animation="blink" type="text" />
+                        <q-skeleton animation="pulse" type="text" />
                     </th>
                 </tr>
             </thead>
@@ -55,22 +55,22 @@
             <tbody>
                 <tr v-for="n in 5" :key="n">
                     <td class="text-left">
-                        <q-skeleton animation="blink" type="text" width="85px" />
+                        <q-skeleton animation="pulse" type="text" width="85px" />
                     </td>
                     <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="50px" />
+                        <q-skeleton animation="pulse" type="text" width="50px" />
                     </td>
                     <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="35px" />
+                        <q-skeleton animation="pulse" type="text" width="35px" />
                     </td>
                     <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="65px" />
+                        <q-skeleton animation="pulse" type="text" width="65px" />
                     </td>
                     <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="25px" />
+                        <q-skeleton animation="pulse" type="text" width="25px" />
                     </td>
                     <td class="text-right">
-                        <q-skeleton animation="blink" type="text" width="85px" />
+                        <q-skeleton animation="pulse" type="text" width="85px" />
                     </td>
                 </tr>
             </tbody>
@@ -82,9 +82,9 @@
 
             <q-card-section>
                 <div class="q-gutter-md">
-                    <q-skeleton class="w-1/4" height="60px" />
-                    <q-skeleton class="w-1/3" height="30px" />
-                    <q-skeleton height="350px" />
+                    <q-skeleton class="w-1/4" height="60px" animation="wave" />
+                    <q-skeleton class="w-1/3" height="30px" animation="wave" />
+                    <q-skeleton height="350px" animation="wave" />
                 </div>
             </q-card-section>
         </q-card>
