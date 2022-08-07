@@ -27,8 +27,8 @@
         </div>
     </div> -->
 
-    <div class="q-pa-md" v-for="i in 1" :key="i">
-        <q-markup-table>
+    <!-- <div class="q-pa-md" v-for="i in 1" :key="i">
+        <q-markup-table class="min-h-[550px]">
             <thead>
                 <tr>
                     <th class="text-left" style="width: 150px">
@@ -75,8 +75,19 @@
                 </tr>
             </tbody>
         </q-markup-table>
-    </div>
+    </div> -->
 
+    <div class="q-pa-md min-h-[550px]">
+        <q-card class="w-full">
+
+            <q-card-section>
+                <div class="q-gutter-md">
+                    <q-skeleton class="w-1/4" height="60px" animation="wave" />
+                    <q-skeleton height="350px" animation="wave" />
+                </div>
+            </q-card-section>
+        </q-card>
+    </div>
     <div class="q-pa-md" v-for="i in 3" :key="i">
         <q-card class="w-full">
 

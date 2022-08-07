@@ -1,4 +1,7 @@
 import axios from "axios";
+import systemStore from "../stores/sistem";
+
+// const system = systemStore();
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
@@ -20,11 +23,12 @@ const apiflask = axios.create({
 });
 
 const apidjango = axios.create({
-	// baseURL: "http://127.0.0.1:5000/"
+	// baseURL: "http://127.0.0.1:8000/"
 	baseURL: "https://valutech.herokuapp.com/"
 	// headers: {
-	// 	"Content-Type": "application/json",
-	// },
+	// "Content-Type": "application/json",
+	// Authorization: `Token ${system.userToken}`
+	// }
 });
 
 const apiDjangoJson = axios.create({

@@ -1,6 +1,7 @@
 <template>
-    <div class="">
-        <vue-cal class="min-h-[400px] rounded" :time="false" active-view="week" :disable-views="['years', 'year']"
+    <SkelCal v-if="state.isLoading" />
+    <div class="" v-else>
+        <vue-cal class="min-h-[400px] rounded" :time="false" active-view="year" :disable-views="['years', 'year']"
             :events="state.events" locale="pt-br">
             <template v-slot:cell-content="{ view, events }">
                 <span class="vuecal__no-event" v-if="['week', 'day'].includes(view.id) && !events.length">Sem Eventos
@@ -18,87 +19,44 @@ import 'vue-cal/dist/i18n/pt-br.js'
 import 'vue-cal/dist/vuecal.css'
 
 import { reactive } from 'vue'
+import { apidjango } from '../../plugins/axios'
+import SkelCal from '../Skelter/SkelCal.vue'
+import systemStore from '../../stores/sistem'
+
 
 export default {
-    components: { VueCal },
+    components: { VueCal, SkelCal },
     setup() {
+        const system = systemStore()
+        const headers = {
+            Authorization: `Token ${system.userToken}`
+        }
         const state = reactive({
-            events: [
-                {
-                    start: '2022-08-01',
-                    end: '2022-08-01',
-                    title: 'Postagem Facebook',
-                    content: '<i class="fab fa-facebook"></i>',
-                    class: 'facebook'
-                },
-                {
-                    start: '2022-08-01',
-                    end: '2022-08-01',
-                    title: 'Email para o Marcelo pata sobre minhas dúvidas',
-                    content: '<i class="fas fa-envelope"></i>',
-                    class: 'email'
-                },
-                {
-                    start: '2022-08-02',
-                    end: '2022-08-02',
-                    title: 'Postagem Facebook',
-                    content: '<i class="fab fa-facebook"></i>',
-                    class: 'facebook'
-                },
-                {
-                    start: '2022-08-02',
-                    end: '2022-08-02',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="fas fa-envelope"></i>',
-                    class: 'email'
-                },
-                {
-                    start: '2022-08-02',
-                    end: '2022-08-02',
-                    title: 'Postagem Facebook',
-                    content: '<i class="fab fa-facebook"></i>',
-                    class: 'facebook'
-                },
-                {
-                    start: '2022-08-02',
-                    end: '2022-08-02',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="fab fa-instagram"></i>',
-                    class: 'instagram'
-                },
-                {
-                    start: '2022-08-04',
-                    end: '2022-08-04',
-                    title: 'Video Youtube!',
-                    content: '<i class="fab fa-youtube"></i>',
-                    class: 'youtube'
-                },
-                {
-                    start: '2022-08-04',
-                    end: '2022-08-04',
-                    title: 'Postagem Facebook',
-                    content: '<i class="fab fa-facebook"></i>',
-                    class: 'facebook'
-                },
-                {
-                    start: '2022-08-04',
-                    end: '2022-08-04',
-                    title: 'Dad\'s birthday!',
-                    content: '<i class="fas fa-envelope"></i>',
-                    class: 'email'
-                },
-                {
-                    start: '2022-08-04',
-                    end: '2022-08-04',
-                    title: 'Postagem Instagram',
-                    content: '<i class="fab fa-instagram"></i>',
-                    class: 'instagram'
-                },
-            ]
+            url: "npproject/formdata/random_cal/",
+            isLoading: false,
         })
-        return { state }
-    }
+        async function sugestionKeyword() {
+            state.isLoading = true
+            const response = await apidjango
+                .get(state.url, {
+                    headers: headers
+                })
+                .then((resp) => {
+                    let data = JSON.parse(JSON.stringify(resp.data.data))
+                    state.events = data
+                    console.log(data)
+                }).catch((err) => {
+                    console.log(err)
+                }).finally(() => {
+                    state.isLoading = false
+                })
+        }
+        return { state, sugestionKeyword }
+    },
 
+    created() {
+        this.sugestionKeyword()
+    }
 }
 </script>
 

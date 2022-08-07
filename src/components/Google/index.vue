@@ -82,13 +82,19 @@
 
 <script>
 import useStore from '../../stores/user'
+import systemStore from '../../stores/sistem'
+
 import { reactive } from 'vue';
-import { apiflask } from '../../plugins/axios'
+import { apidjango } from '../../plugins/axios'
 import Skel from './Skel.vue'
 
 export default {
     components: { Skel },
     setup() {
+        const system = systemStore()
+        const headers = {
+            Authorization: `Token ${system.userToken}`
+        }
         const state = reactive({
             rows: [],
             isLoading: false,
@@ -170,12 +176,15 @@ export default {
         })
         let user = useStore()
         let url = "sugestions_keyword";
-        let url_queries = "related_queries";
+        let url_queries = "npproject/formdata/1/get_related_query/";
 
         async function sugestionKeyword() {
             state.isLoading = true
-            const response = await apiflask
-                .post(url, { 'keyword': state.keyword })
+            console.log(headers)
+            const response = await apidjango
+                .post(url, { 'keyword': state.keyword }, {
+                    headers: headers
+                })
                 .then((resp) => {
                     let data = JSON.parse(JSON.stringify(resp.data.data))
                     state.lista = data
@@ -188,8 +197,10 @@ export default {
         }
         async function relatedQueries() {
             state.isLoadingQueries = true
-            const response = await apiflask
-                .post(url_queries, { 'keyword': state.keyword })
+            const response = await apidjango
+                .post(url_queries, { 'keyword': state.keyword }, {
+                    headers: headers
+                })
                 .then((resp) => {
                     let data = JSON.parse(JSON.stringify(resp.data.data))
                     state.rising = data.rising
@@ -203,7 +214,7 @@ export default {
         }
         async function callAxios() {
             state.findWord = state.keyword
-            sugestionKeyword()
+            // sugestionKeyword()
             relatedQueries()
         }
         function clearSearch() {
