@@ -34,8 +34,8 @@ const apidjango = axios.create({
 const apiDjangoJson = axios.create({
 	baseURL: "http://127.0.0.1:8000/",
 	headers: {
-		"Content-Type": "application/json",
-		Authorization: "Token be62fda6f75126249978a4d8e29d38116d0c49c6"
+		"Content-Type": "application/json"
+		// Authorization: `Token ${system.userToken}`
 	}
 });
 
