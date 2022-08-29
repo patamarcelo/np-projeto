@@ -49,7 +49,7 @@
                 </div>
             </q-timeline-entry>
 
-            <q-timeline-entry title="Event Title" subtitle="February 22, 1986" side="left" color="orange"
+            <q-timeline-entry title="Event Title" subtitle="February 22, 1986" side="left" color="green"
                 icon="done_all">
                 <div>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
@@ -99,3 +99,10 @@ export default {
     }
 }
 </script>
+
+<style>
+.q-timeline__content>h6 {
+    color: red;
+    font-weight: bold;
+}
+</style>
